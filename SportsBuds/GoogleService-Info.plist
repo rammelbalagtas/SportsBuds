@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>896220363708-tosat12nbolijmhrm41t353qmc60tjp9.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.896220363708-tosat12nbolijmhrm41t353qmc60tjp9</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDMx1cvJ9PXEvbT4pjLqXHrpTRW5x7HNOM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>896220363708</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.rammelbalagtas.SportsBuds</string>
+	<key>PROJECT_ID</key>
+	<string>sportsbuds-b976b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>sportsbuds-b976b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:896220363708:ios:f33a76b9b0bf80a69f09b9</string>
+</dict>
+</plist>

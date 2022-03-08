@@ -16,9 +16,12 @@
 		6EBA750627D7B37100EE427B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA750427D7B37100EE427B /* LoginViewController.swift */; };
 		6EBA750A27D7B37E00EE427B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA750827D7B37E00EE427B /* HomeViewController.swift */; };
 		6EBA750E27D7B59800EE427B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA750D27D7B59800EE427B /* MainViewController.swift */; };
+		6EBA751127D7F20F00EE427B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6EBA751027D7F20F00EE427B /* GoogleService-Info.plist */; };
+		AE28915D98841FD49517297F /* Pods_SportsBuds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC96CF673AC3C36E24DCD115 /* Pods_SportsBuds.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E02235E07512D2E14397EFD /* Pods-SportsBuds.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsBuds.release.xcconfig"; path = "Target Support Files/Pods-SportsBuds/Pods-SportsBuds.release.xcconfig"; sourceTree = "<group>"; };
 		6EBA74E927D7B20A00EE427B /* SportsBuds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportsBuds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EBA74EC27D7B20A00EE427B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EBA74EE27D7B20A00EE427B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +33,9 @@
 		6EBA750427D7B37100EE427B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6EBA750827D7B37E00EE427B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6EBA750D27D7B59800EE427B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		6EBA751027D7F20F00EE427B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B64271940E8B43E44C3996C6 /* Pods-SportsBuds.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsBuds.debug.xcconfig"; path = "Target Support Files/Pods-SportsBuds/Pods-SportsBuds.debug.xcconfig"; sourceTree = "<group>"; };
+		DC96CF673AC3C36E24DCD115 /* Pods_SportsBuds.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportsBuds.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +43,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE28915D98841FD49517297F /* Pods_SportsBuds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		626880B4E55228BAD58D51C3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B64271940E8B43E44C3996C6 /* Pods-SportsBuds.debug.xcconfig */,
+				0E02235E07512D2E14397EFD /* Pods-SportsBuds.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		6EBA74E027D7B20A00EE427B = {
 			isa = PBXGroup;
 			children = (
 				6EBA74EB27D7B20A00EE427B /* SportsBuds */,
 				6EBA74EA27D7B20A00EE427B /* Products */,
+				626880B4E55228BAD58D51C3 /* Pods */,
+				CC3034D2AD3FE4BE81D4CF85 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +81,7 @@
 		6EBA74EB27D7B20A00EE427B /* SportsBuds */ = {
 			isa = PBXGroup;
 			children = (
+				6EBA751027D7F20F00EE427B /* GoogleService-Info.plist */,
 				6EBA750C27D7B38B00EE427B /* ViewControllers */,
 				6EBA74EC27D7B20A00EE427B /* AppDelegate.swift */,
 				6EBA74EE27D7B20A00EE427B /* SceneDelegate.swift */,
@@ -84,6 +104,14 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		CC3034D2AD3FE4BE81D4CF85 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC96CF673AC3C36E24DCD115 /* Pods_SportsBuds.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -91,9 +119,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6EBA74FD27D7B20C00EE427B /* Build configuration list for PBXNativeTarget "SportsBuds" */;
 			buildPhases = (
+				15286CDB33D91E5273442BEC /* [CP] Check Pods Manifest.lock */,
 				6EBA74E527D7B20A00EE427B /* Sources */,
 				6EBA74E627D7B20A00EE427B /* Frameworks */,
 				6EBA74E727D7B20A00EE427B /* Resources */,
+				6E5E80834CD15607FA509564 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -143,12 +173,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EBA74F927D7B20C00EE427B /* LaunchScreen.storyboard in Resources */,
+				6EBA751127D7F20F00EE427B /* GoogleService-Info.plist in Resources */,
 				6EBA74F627D7B20C00EE427B /* Assets.xcassets in Resources */,
 				6EBA74F427D7B20A00EE427B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		15286CDB33D91E5273442BEC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SportsBuds-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E5E80834CD15607FA509564 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SportsBuds/Pods-SportsBuds-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SportsBuds/Pods-SportsBuds-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SportsBuds/Pods-SportsBuds-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6EBA74E527D7B20A00EE427B /* Sources */ = {
@@ -304,6 +377,7 @@
 		};
 		6EBA74FE27D7B20C00EE427B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B64271940E8B43E44C3996C6 /* Pods-SportsBuds.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -331,6 +405,7 @@
 		};
 		6EBA74FF27D7B20C00EE427B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E02235E07512D2E14397EFD /* Pods-SportsBuds.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
