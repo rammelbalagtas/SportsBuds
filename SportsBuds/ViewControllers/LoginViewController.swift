@@ -9,10 +9,18 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var emailAddressText: UITextField!
+    @IBOutlet weak var passwordText: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        errorLabel.alpha = 0
 
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func loginAction(_ sender: UIButton) {
     }
 
 

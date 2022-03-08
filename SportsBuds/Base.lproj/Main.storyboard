@@ -117,6 +117,9 @@
                                             </backgroundConfiguration>
                                             <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="loginAction:" destination="cBG-WT-dQx" eventType="touchUpInside" id="rTS-e4-2Lv"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzV-CU-tkk">
                                         <rect key="frame" x="0.0" y="150" width="280" height="40"/>
@@ -141,6 +144,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TyV-y3-s8L"/>
+                    <connections>
+                        <outlet property="emailAddressText" destination="kNU-hQ-FRd" id="vg4-HG-0bC"/>
+                        <outlet property="errorLabel" destination="jzV-CU-tkk" id="DMp-0U-ZXx"/>
+                        <outlet property="passwordText" destination="x5k-rg-EMv" id="QZB-JY-9iB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R1x-YR-Tsn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -192,7 +200,7 @@
                                             <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="signupAction:" destination="ZjQ-5h-wzM" eventType="touchUpInside" id="kIm-Wc-Psu"/>
+                                            <action selector="signupAction:" destination="ZjQ-5h-wzM" eventType="touchUpInside" id="RvD-Dy-Bvf"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOr-Y7-VTB">
@@ -221,6 +229,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Nim-lF-Q2g"/>
+                    <connections>
+                        <outlet property="emailAddressText" destination="PPo-J1-Txe" id="kOQ-7J-2Dx"/>
+                        <outlet property="errorLabel" destination="ZOr-Y7-VTB" id="sJv-1V-ca0"/>
+                        <outlet property="firstNameText" destination="lMp-Ve-6mR" id="oLW-ZL-LLZ"/>
+                        <outlet property="lastNameText" destination="yIU-Yf-ghF" id="UZg-fw-tZ2"/>
+                        <outlet property="passwordText" destination="GVM-JD-9Ma" id="1JI-jc-2yY"/>
+                        <outlet property="retypePasswordText" destination="oxh-Mg-kU6" id="ap3-jB-DAX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Gt-jA-IfF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
