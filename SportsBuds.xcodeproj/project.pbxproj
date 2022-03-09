@@ -17,6 +17,8 @@
 		6EBA750A27D7B37E00EE427B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA750827D7B37E00EE427B /* HomeViewController.swift */; };
 		6EBA750E27D7B59800EE427B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA750D27D7B59800EE427B /* MainViewController.swift */; };
 		6EBA751127D7F20F00EE427B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6EBA751027D7F20F00EE427B /* GoogleService-Info.plist */; };
+		6EBA751427D800D900EE427B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA751327D800D900EE427B /* Utilities.swift */; };
+		6EBA751627D821C600EE427B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA751527D821C600EE427B /* Constants.swift */; };
 		AE28915D98841FD49517297F /* Pods_SportsBuds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC96CF673AC3C36E24DCD115 /* Pods_SportsBuds.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +36,8 @@
 		6EBA750827D7B37E00EE427B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6EBA750D27D7B59800EE427B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		6EBA751027D7F20F00EE427B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6EBA751327D800D900EE427B /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		6EBA751527D821C600EE427B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B64271940E8B43E44C3996C6 /* Pods-SportsBuds.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsBuds.debug.xcconfig"; path = "Target Support Files/Pods-SportsBuds/Pods-SportsBuds.debug.xcconfig"; sourceTree = "<group>"; };
 		DC96CF673AC3C36E24DCD115 /* Pods_SportsBuds.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportsBuds.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -56,7 +60,6 @@
 				B64271940E8B43E44C3996C6 /* Pods-SportsBuds.debug.xcconfig */,
 				0E02235E07512D2E14397EFD /* Pods-SportsBuds.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -81,6 +84,7 @@
 		6EBA74EB27D7B20A00EE427B /* SportsBuds */ = {
 			isa = PBXGroup;
 			children = (
+				6EBA751227D800CA00EE427B /* Helper */,
 				6EBA751027D7F20F00EE427B /* GoogleService-Info.plist */,
 				6EBA750C27D7B38B00EE427B /* ViewControllers */,
 				6EBA74EC27D7B20A00EE427B /* AppDelegate.swift */,
@@ -102,6 +106,15 @@
 				6EBA750827D7B37E00EE427B /* HomeViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6EBA751227D800CA00EE427B /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				6EBA751327D800D900EE427B /* Utilities.swift */,
+				6EBA751527D821C600EE427B /* Constants.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		CC3034D2AD3FE4BE81D4CF85 /* Frameworks */ = {
@@ -230,10 +243,12 @@
 			files = (
 				6EBA74ED27D7B20A00EE427B /* AppDelegate.swift in Sources */,
 				6EBA750227D7B32F00EE427B /* SignUpViewController.swift in Sources */,
+				6EBA751427D800D900EE427B /* Utilities.swift in Sources */,
 				6EBA750627D7B37100EE427B /* LoginViewController.swift in Sources */,
 				6EBA750E27D7B59800EE427B /* MainViewController.swift in Sources */,
 				6EBA74EF27D7B20A00EE427B /* SceneDelegate.swift in Sources */,
 				6EBA750A27D7B37E00EE427B /* HomeViewController.swift in Sources */,
+				6EBA751627D821C600EE427B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

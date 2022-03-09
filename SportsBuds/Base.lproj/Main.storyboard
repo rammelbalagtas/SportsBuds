@@ -163,7 +163,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tOJ-vv-Sx0">
-                                <rect key="frame" x="20" y="64" width="280" height="340"/>
+                                <rect key="frame" x="20" y="64" width="280" height="320.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lMp-Ve-6mR">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="40"/>
@@ -203,8 +203,8 @@
                                             <action selector="signupAction:" destination="ZjQ-5h-wzM" eventType="touchUpInside" id="RvD-Dy-Bvf"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOr-Y7-VTB">
-                                        <rect key="frame" x="0.0" y="300" width="280" height="40"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOr-Y7-VTB">
+                                        <rect key="frame" x="0.0" y="300" width="280" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
@@ -214,7 +214,6 @@
                                     <constraint firstItem="7Sx-Mg-fJy" firstAttribute="height" secondItem="GVM-JD-9Ma" secondAttribute="height" id="1jK-y8-hro"/>
                                     <constraint firstItem="7Sx-Mg-fJy" firstAttribute="height" secondItem="oxh-Mg-kU6" secondAttribute="height" id="N7I-cN-T6g"/>
                                     <constraint firstItem="7Sx-Mg-fJy" firstAttribute="height" secondItem="lMp-Ve-6mR" secondAttribute="height" id="UcX-7B-1h8"/>
-                                    <constraint firstItem="7Sx-Mg-fJy" firstAttribute="height" secondItem="ZOr-Y7-VTB" secondAttribute="height" id="XUW-H9-ge5"/>
                                     <constraint firstItem="7Sx-Mg-fJy" firstAttribute="height" secondItem="PPo-J1-Txe" secondAttribute="height" id="fTe-MI-GF2"/>
                                     <constraint firstItem="7Sx-Mg-fJy" firstAttribute="height" secondItem="yIU-Yf-ghF" secondAttribute="height" id="vtt-Ri-O8G"/>
                                 </constraints>
@@ -245,12 +244,24 @@
         <!--Home View Controller-->
         <scene sceneID="Ciw-Vh-Jea">
             <objects>
-                <viewController id="Kcz-Cn-8Ej" customClass="HomeViewController" customModule="SportsBuds" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" id="Kcz-Cn-8Ej" customClass="HomeViewController" customModule="SportsBuds" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kdo-gN-O3A">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Homepage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgc-Rk-7MG">
+                                <rect key="frame" x="118" y="229.5" width="84" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="jy1-33-NG7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tgc-Rk-7MG" firstAttribute="centerY" secondItem="kdo-gN-O3A" secondAttribute="centerY" id="UD6-mg-bdb"/>
+                            <constraint firstItem="tgc-Rk-7MG" firstAttribute="centerX" secondItem="kdo-gN-O3A" secondAttribute="centerX" id="is9-sF-IHS"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bBW-n2-7Vo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
