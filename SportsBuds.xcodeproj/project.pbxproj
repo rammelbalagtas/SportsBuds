@@ -19,6 +19,8 @@
 		6EBA751127D7F20F00EE427B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6EBA751027D7F20F00EE427B /* GoogleService-Info.plist */; };
 		6EBA751427D800D900EE427B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA751327D800D900EE427B /* Utilities.swift */; };
 		6EBA751627D821C600EE427B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA751527D821C600EE427B /* Constants.swift */; };
+		6EDFAA1327D8501900397859 /* SearchPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDFAA1227D8501900397859 /* SearchPostViewController.swift */; };
+		6EDFAA1527D8502A00397859 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDFAA1427D8502A00397859 /* ProfileViewController.swift */; };
 		AE28915D98841FD49517297F /* Pods_SportsBuds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC96CF673AC3C36E24DCD115 /* Pods_SportsBuds.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +40,8 @@
 		6EBA751027D7F20F00EE427B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6EBA751327D800D900EE427B /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		6EBA751527D821C600EE427B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6EDFAA1227D8501900397859 /* SearchPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPostViewController.swift; sourceTree = "<group>"; };
+		6EDFAA1427D8502A00397859 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B64271940E8B43E44C3996C6 /* Pods-SportsBuds.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsBuds.debug.xcconfig"; path = "Target Support Files/Pods-SportsBuds/Pods-SportsBuds.debug.xcconfig"; sourceTree = "<group>"; };
 		DC96CF673AC3C36E24DCD115 /* Pods_SportsBuds.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportsBuds.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -104,6 +108,8 @@
 				6EBA750027D7B32F00EE427B /* SignUpViewController.swift */,
 				6EBA750427D7B37100EE427B /* LoginViewController.swift */,
 				6EBA750827D7B37E00EE427B /* HomeViewController.swift */,
+				6EDFAA1227D8501900397859 /* SearchPostViewController.swift */,
+				6EDFAA1427D8502A00397859 /* ProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -243,9 +249,11 @@
 			files = (
 				6EBA74ED27D7B20A00EE427B /* AppDelegate.swift in Sources */,
 				6EBA750227D7B32F00EE427B /* SignUpViewController.swift in Sources */,
+				6EDFAA1527D8502A00397859 /* ProfileViewController.swift in Sources */,
 				6EBA751427D800D900EE427B /* Utilities.swift in Sources */,
 				6EBA750627D7B37100EE427B /* LoginViewController.swift in Sources */,
 				6EBA750E27D7B59800EE427B /* MainViewController.swift in Sources */,
+				6EDFAA1327D8501900397859 /* SearchPostViewController.swift in Sources */,
 				6EBA74EF27D7B20A00EE427B /* SceneDelegate.swift in Sources */,
 				6EBA750A27D7B37E00EE427B /* HomeViewController.swift in Sources */,
 				6EBA751627D821C600EE427B /* Constants.swift in Sources */,
