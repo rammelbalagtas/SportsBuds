@@ -93,8 +93,8 @@ class SignUpViewController: UIViewController {
     
     //set HomeViewController as root controller after successful signup
     func transitionToHome() {
-        let homeViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
-        view.window?.rootViewController = homeViewController
+        let homeNavVC = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeNavVC) as? UINavigationController
+        view.window?.rootViewController = homeNavVC
         view.window?.makeKeyAndVisible()
     }
 
