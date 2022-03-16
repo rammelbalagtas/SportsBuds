@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MyPostCellReuseIdentifier" id="gTV-IL-0wX" customClass="MyPostCollectionViewCell" customModule="SportsBuds" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="basketball" translatesAutoresizingMaskIntoConstraints="NO" id="rpE-kw-zOD">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="150" id="eLm-sL-AZp"/>
+                            <constraint firstAttribute="width" constant="150" id="k2r-WR-yu1"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mr-dK-32I">
+                        <rect key="frame" x="0.0" y="156" width="150" height="44"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="rpE-kw-zOD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="3Tj-ka-Nch"/>
+                <constraint firstItem="rpE-kw-zOD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Ype-qu-OOq"/>
+                <constraint firstItem="9mr-dK-32I" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="eYU-gC-Xao"/>
+                <constraint firstItem="9mr-dK-32I" firstAttribute="top" secondItem="rpE-kw-zOD" secondAttribute="bottom" constant="6" id="oev-P3-6DC"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="9mr-dK-32I" secondAttribute="bottom" id="ohN-7H-b9Q"/>
+                <constraint firstAttribute="trailing" secondItem="rpE-kw-zOD" secondAttribute="trailing" id="qD1-Gb-Pym"/>
+                <constraint firstAttribute="trailing" secondItem="9mr-dK-32I" secondAttribute="trailing" id="xLf-An-Q5n"/>
+            </constraints>
+            <size key="customSize" width="315" height="280"/>
+            <connections>
+                <outlet property="titleLabel" destination="9mr-dK-32I" id="tkI-jt-UeJ"/>
+            </connections>
+            <point key="canvasLocation" x="214.49275362318843" y="105.80357142857143"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="basketball" width="320" height="208.5"/>
+    </resources>
+</document>

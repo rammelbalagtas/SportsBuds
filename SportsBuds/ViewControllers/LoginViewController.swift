@@ -17,6 +17,9 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         errorLabel.alpha = 0
+        //for testing purposes only
+        emailAddressText.text = "test3@gmail.com"
+        passwordText.text = "Test@1234"
         // Do any additional setup after loading the view.
     }
     
