@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6E7BAADB27D9A3E0002AC206 /* MyFavTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7BAAD927D9A3E0002AC206 /* MyFavTableViewCell.swift */; };
-		6E7BAADC27D9A3E0002AC206 /* MyFavTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7BAADA27D9A3E0002AC206 /* MyFavTableViewCell.xib */; };
 		6EBA74ED27D7B20A00EE427B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA74EC27D7B20A00EE427B /* AppDelegate.swift */; };
 		6EBA74EF27D7B20A00EE427B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA74EE27D7B20A00EE427B /* SceneDelegate.swift */; };
 		6EBA74F427D7B20A00EE427B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EBA74F227D7B20A00EE427B /* Main.storyboard */; };
@@ -24,6 +23,7 @@
 		6EBD278027E0E2890035D0AF /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBD277F27E0E2890035D0AF /* Post.swift */; };
 		6EBD278227E0E39B0035D0AF /* PostList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBD278127E0E39B0035D0AF /* PostList.swift */; };
 		6EBD278627E1484A0035D0AF /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBD278527E1484A0035D0AF /* APIHelper.swift */; };
+		6ECDB33B27E37A1F00115196 /* MyFavTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6ECDB33A27E37A1F00115196 /* MyFavTableViewCell.xib */; };
 		6EDFAA1327D8501900397859 /* SearchPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDFAA1227D8501900397859 /* SearchPostViewController.swift */; };
 		6EDFAA1527D8502A00397859 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDFAA1427D8502A00397859 /* ProfileViewController.swift */; };
 		6EDFAA1827D9706B00397859 /* MyPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDFAA1627D9706B00397859 /* MyPostCollectionViewCell.swift */; };
@@ -34,7 +34,6 @@
 /* Begin PBXFileReference section */
 		0E02235E07512D2E14397EFD /* Pods-SportsBuds.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsBuds.release.xcconfig"; path = "Target Support Files/Pods-SportsBuds/Pods-SportsBuds.release.xcconfig"; sourceTree = "<group>"; };
 		6E7BAAD927D9A3E0002AC206 /* MyFavTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavTableViewCell.swift; sourceTree = "<group>"; };
-		6E7BAADA27D9A3E0002AC206 /* MyFavTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyFavTableViewCell.xib; sourceTree = "<group>"; };
 		6EBA74E927D7B20A00EE427B /* SportsBuds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportsBuds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EBA74EC27D7B20A00EE427B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EBA74EE27D7B20A00EE427B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +51,7 @@
 		6EBD277F27E0E2890035D0AF /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		6EBD278127E0E39B0035D0AF /* PostList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostList.swift; sourceTree = "<group>"; };
 		6EBD278527E1484A0035D0AF /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
+		6ECDB33A27E37A1F00115196 /* MyFavTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyFavTableViewCell.xib; sourceTree = "<group>"; };
 		6EDFAA1227D8501900397859 /* SearchPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPostViewController.swift; sourceTree = "<group>"; };
 		6EDFAA1427D8502A00397859 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6EDFAA1627D9706B00397859 /* MyPostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -163,7 +163,7 @@
 				6EDFAA1727D9706B00397859 /* MyPostCollectionViewCell.xib */,
 				6EDFAA1627D9706B00397859 /* MyPostCollectionViewCell.swift */,
 				6E7BAAD927D9A3E0002AC206 /* MyFavTableViewCell.swift */,
-				6E7BAADA27D9A3E0002AC206 /* MyFavTableViewCell.xib */,
+				6ECDB33A27E37A1F00115196 /* MyFavTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -237,7 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EDFAA1927D9706B00397859 /* MyPostCollectionViewCell.xib in Resources */,
-				6E7BAADC27D9A3E0002AC206 /* MyFavTableViewCell.xib in Resources */,
+				6ECDB33B27E37A1F00115196 /* MyFavTableViewCell.xib in Resources */,
 				6EBA74F927D7B20C00EE427B /* LaunchScreen.storyboard in Resources */,
 				6EBA751127D7F20F00EE427B /* GoogleService-Info.plist in Resources */,
 				6EBA74F627D7B20C00EE427B /* Assets.xcassets in Resources */,
