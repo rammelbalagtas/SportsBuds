@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6E63E61627E4E055003F0269 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E63E61527E4E055003F0269 /* PostDetailViewController.swift */; };
-		6E63E61827E4E849003F0269 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E63E61727E4E849003F0269 /* LocationSearchTable.swift */; };
+		6E63E63A27E614F7003F0269 /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E63E63927E614F7003F0269 /* LocationSearchViewController.swift */; };
 		6E7BAADB27D9A3E0002AC206 /* MyFavTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7BAAD927D9A3E0002AC206 /* MyFavTableViewCell.swift */; };
 		6EBA74ED27D7B20A00EE427B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA74EC27D7B20A00EE427B /* AppDelegate.swift */; };
 		6EBA74EF27D7B20A00EE427B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA74EE27D7B20A00EE427B /* SceneDelegate.swift */; };
@@ -36,7 +36,7 @@
 /* Begin PBXFileReference section */
 		0E02235E07512D2E14397EFD /* Pods-SportsBuds.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsBuds.release.xcconfig"; path = "Target Support Files/Pods-SportsBuds/Pods-SportsBuds.release.xcconfig"; sourceTree = "<group>"; };
 		6E63E61527E4E055003F0269 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
-		6E63E61727E4E849003F0269 /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
+		6E63E63927E614F7003F0269 /* LocationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
 		6E7BAAD927D9A3E0002AC206 /* MyFavTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavTableViewCell.swift; sourceTree = "<group>"; };
 		6EBA74E927D7B20A00EE427B /* SportsBuds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportsBuds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EBA74EC27D7B20A00EE427B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 				6EDFAA1227D8501900397859 /* SearchPostViewController.swift */,
 				6EDFAA1427D8502A00397859 /* ProfileViewController.swift */,
 				6E63E61527E4E055003F0269 /* PostDetailViewController.swift */,
-				6E63E61727E4E849003F0269 /* LocationSearchTable.swift */,
+				6E63E63927E614F7003F0269 /* LocationSearchViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -313,10 +313,10 @@
 				6EBA750E27D7B59800EE427B /* MainViewController.swift in Sources */,
 				6EDFAA1327D8501900397859 /* SearchPostViewController.swift in Sources */,
 				6EBA74EF27D7B20A00EE427B /* SceneDelegate.swift in Sources */,
+				6E63E63A27E614F7003F0269 /* LocationSearchViewController.swift in Sources */,
 				6EBA750A27D7B37E00EE427B /* HomeViewController.swift in Sources */,
 				6EBA751627D821C600EE427B /* Constants.swift in Sources */,
 				6EBD278227E0E39B0035D0AF /* PostList.swift in Sources */,
-				6E63E61827E4E849003F0269 /* LocationSearchTable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

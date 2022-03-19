@@ -10,6 +10,8 @@ import MapKit
 
 class PostDetailViewController: UIViewController {
     
+    var post = Post()
+    
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var sportTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
@@ -26,9 +28,15 @@ class PostDetailViewController: UIViewController {
     @IBAction func saveAction(_ sender: UIButton) {
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //add border to textview
+        let borderColor : UIColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0)
+        descriptionTextView.layer.borderWidth = 0.5
+        descriptionTextView.layer.borderColor = borderColor.cgColor
+        descriptionTextView.layer.cornerRadius = 5.0
         // Do any additional setup after loading the view.
     }
     
