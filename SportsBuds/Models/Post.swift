@@ -9,13 +9,13 @@ import Foundation
 import UIKit
 import MapKit
 
-struct Post {
+struct Post: Codable {
     let id: Int
     let title: String
-    let sport: String
+//    let sport: String
     let description: String
     let location: String
-    let latitude: Float
-    let longitude: Float
-    let date: Date
+    let latitude: CLLocationDegrees
+    let longitude: CLLocationDegrees
+    let date: Date?
 }

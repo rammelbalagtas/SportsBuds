@@ -19,6 +19,10 @@ class LocationSearchViewController: UIViewController, UISearchBarDelegate, MKLoc
     // These are the results that are returned from the searchCompleter & what we are displaying
     // on the searchResultsTable
     var searchResults = [MKLocalSearchCompletion]()
+    
+    var longitude: CLLocationDegrees?
+    var latitude: CLLocationDegrees?
+    var location: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,15 +64,20 @@ class LocationSearchViewController: UIViewController, UISearchBarDelegate, MKLoc
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if let dst = segue.destination as? PostDetailViewController {
+            dst.longitude = longitude!
+            dst.latitude = latitude!
+            dst.locationText.text = location!
+        }
     }
-    */
+    
 
 }
 
@@ -113,18 +122,25 @@ extension LocationSearchViewController: UITableViewDelegate {
         
         let search = MKLocalSearch(request: searchRequest)
         search.start { (response, error) in
-            guard let coordinate = response?.mapItems[0].placemark.coordinate else {
+            
+            if let error = error {
+                print(error)
                 return
             }
             
-            guard let name = response?.mapItems[0].name else {
-                return
-            }
+            guard
+                let coordinate = response?.mapItems[0].placemark.coordinate
+            else {return}
+            self.longitude = coordinate.longitude
+            self.latitude = coordinate.latitude
             
-            let latitude = coordinate.latitude
-            let longitude = coordinate.longitude
+            guard
+                let name = response?.mapItems[0].name
+            else {return}
+            self.location = name
+    
+            self.performSegue(withIdentifier: "unwindToPostDetail", sender: self)
             
-            self.dismiss(animated: true)
         }
     }
 }

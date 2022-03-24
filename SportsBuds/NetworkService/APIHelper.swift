@@ -17,6 +17,11 @@ enum PostApiResult {
     case failure(Error)
 }
 
+enum PostDataResult {
+    case success(Post)
+    case failure(Error)
+}
+
 struct PostApi : Codable {
     let id: Int
     let title: String
@@ -27,6 +32,7 @@ struct PostApi : Codable {
 struct APIHelper {
     
     public static let baseURL = "https://sportsbuds.azurewebsites.net"
+    public static let postURL = "https://sportsbuds.azurewebsites.net/api/posts"
     
     private static let session: URLSession = {
         let config = URLSessionConfiguration.default
@@ -37,8 +43,7 @@ struct APIHelper {
     public static func fetch(url: URL, callback: @escaping (FetchResult) -> Void){
         let request = URLRequest(url: url)
         let task = session.dataTask(with: request) {
-            data, request, error in
-            
+            data, response, error in
             if let data = data {
                 callback(.success(data))
             } else if let error = error{
@@ -50,11 +55,9 @@ struct APIHelper {
     
     //Fetch details of movie
     public static func fetchPost(url: String, callback: @escaping (PostApiResult) -> Void){
-        
         guard
             let url = URL(string: url)
         else{return}
-    
         APIHelper.fetch(url: url) { fetchResult in
             switch fetchResult {
             case .success(let data):
@@ -69,6 +72,61 @@ struct APIHelper {
                 print("there was an error fetchin information \(error)")
             }
         }
+    }
+    
+    //Post data to API (for POST and PUT methods)
+    public static func postData(url: String = postURL, post: Post, httpMethod: String, callback: @escaping (PostDataResult) -> Void) {
+        
+        guard
+            var url = URL(string: url)
+        else{fatalError()}
+        
+        if httpMethod == "PUT" || httpMethod == "DELETE" {
+            let tempURL = url.appendingPathComponent("/\(post.id)")
+            url = tempURL
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = httpMethod
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        do {
+            let jsonData = try JSONEncoder().encode(post)
+            request.httpBody = jsonData
+        } catch let e {
+            print("could not parse convert json data: \(e)")
+        }
+        
+        let task = session.dataTask(with: request) {
+            data, response, error in
+            
+            if let error = error {
+                print("Error making request: \(error.localizedDescription)")
+                return
+            }
+            
+            guard
+                let response = response as? HTTPURLResponse, (200 ..< 299) ~= response.statusCode
+            else {
+                print("Error: HTTP request failed")
+                return
+            }
+            
+            if httpMethod == "POST" {
+                if let data = data {
+                    do {
+                        let decoder = JSONDecoder()
+                        let post = try decoder.decode(Post.self, from: data)
+                        callback(.success(post))
+                    } catch let e {
+                        print("could not parse json data: \(e)")
+                    }
+                }
+            }
+            
+        }
+        task.resume()
     }
 }
 
