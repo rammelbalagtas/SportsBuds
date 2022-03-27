@@ -49,9 +49,15 @@ class LoginViewController: UIViewController {
     
     //set HomeViewController as root controller after successful signup
     func transitionToHome() {
-        let rootTabBarController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.rootTabBarController) as? UITabBarController
+        let rootTabBarController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.rootTabBarController) as? RootTabBarController
         view.window?.rootViewController = rootTabBarController
         view.window?.makeKeyAndVisible()
+        
+        // Pass dependency to home screen
+        let navControllers = rootTabBarController!.viewControllers
+        let homeNavController = navControllers![0] as? UINavigationController
+        let homeViewController = homeNavController?.topViewController as! HomeViewController
+        homeViewController.emailAddress = emailAddressText.text!.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
 }

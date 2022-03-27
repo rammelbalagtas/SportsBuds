@@ -12,10 +12,12 @@ import MapKit
 struct Post: Codable {
     let id: Int
     let title: String
-//    let sport: String
+    let sport: String
     let description: String
-    let location: String
-    let latitude: CLLocationDegrees
-    let longitude: CLLocationDegrees
-    let date: Date?
+    let location: String?
+    let latitude: CLLocationDegrees?
+    let longitude: CLLocationDegrees?
+    let dateTime: String?
+    let emailAddress: String?
+    let image: String?
 }

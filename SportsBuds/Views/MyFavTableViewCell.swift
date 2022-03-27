@@ -21,7 +21,7 @@ class MyFavTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureCell(using post: PostApi) {
+    func configureCell(using post: Post) {
         self.nameLabel.text = post.title
     }
     

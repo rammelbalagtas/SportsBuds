@@ -241,10 +241,10 @@
             </objects>
             <point key="canvasLocation" x="1722" y="541"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Root Tab Bar Controller-->
         <scene sceneID="r2t-OA-3ih">
             <objects>
-                <tabBarController storyboardIdentifier="RootTabBarController" id="z6v-dl-1aG" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="RootTabBarController" id="z6v-dl-1aG" customClass="RootTabBarController" customModule="SportsBuds" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aki-Sg-n88">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -376,13 +376,15 @@
                     <navigationItem key="navigationItem" title="Home" id="qwd-uX-xSx">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="L5n-Cj-EXm">
                             <connections>
-                                <segue destination="fhT-Ou-T1a" kind="show" id="sHc-uD-oiO"/>
+                                <segue destination="fhT-Ou-T1a" kind="show" identifier="NewPost" id="sHc-uD-oiO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="5Ti-Rg-6hi" id="MPQ-WO-OXa"/>
                         <outlet property="tableView" destination="HbX-A4-fVI" id="cWo-1M-Hsk"/>
+                        <segue destination="fhT-Ou-T1a" kind="show" identifier="ViewMyPost" id="u5U-Gw-gbb"/>
+                        <segue destination="fhT-Ou-T1a" kind="show" identifier="ViewFavorite" id="yk5-53-O0K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KNp-eQ-X6s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -568,9 +570,11 @@
                         <outlet property="saveButton" destination="LYu-iY-2m8" id="9Xc-L6-BMV"/>
                         <outlet property="sportTextField" destination="p1l-Jf-y2F" id="G6m-Wy-luU"/>
                         <outlet property="titleTextField" destination="isD-2W-TTq" id="OUR-Z1-wgk"/>
+                        <segue destination="Lks-TL-PuW" kind="unwind" identifier="unwindToHome" unwindAction="unwindToHome:" id="5Pj-zl-1Xc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pTo-a3-yCd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Lks-TL-PuW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4985.507246376812" y="-326.11607142857139"/>
         </scene>
@@ -707,6 +711,9 @@
             <point key="canvasLocation" x="4163" y="1220"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="u5U-Gw-gbb"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="location" catalog="system" width="128" height="118"/>

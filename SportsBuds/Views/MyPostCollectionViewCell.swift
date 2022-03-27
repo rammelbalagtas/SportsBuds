@@ -16,7 +16,7 @@ class MyPostCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func configureCell(using post: PostApi) {
+    func configureCell(using post: Post) {
         self.titleLabel.text = post.title
     }
 

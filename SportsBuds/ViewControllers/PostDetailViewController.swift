@@ -11,6 +11,7 @@ import MapKit
 class PostDetailViewController: UIViewController {
     
     var post: Post?
+    var emailAddress: String?
     var longitude: CLLocationDegrees?
     var latitude: CLLocationDegrees?
     
@@ -24,7 +25,6 @@ class PostDetailViewController: UIViewController {
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     
-    
     @IBAction func editAction(_ sender: UIButton) {
         titleTextField.isUserInteractionEnabled = true
         sportTextField.isUserInteractionEnabled = true
@@ -35,32 +35,29 @@ class PostDetailViewController: UIViewController {
     
     @IBAction func saveAction(_ sender: UIButton) {
         
-//        postDateTime.datePickerMode = .time
-//        let date = postDateTime.date
-//        let components = Calendar.current.dateComponents([.hour, .minute], from: date)
-//        let hour = components.hour!
-//        let minute = components.minute!
-        
-        let post = Post(id: 5,
+        let post = Post(id: 0,
                         title: titleTextField.text!,
-//                        sport: sportTextField.text!,
+                        sport: sportTextField.text!,
                         description: descriptionTextView.text,
                         location: locationText.text!,
                         latitude: latitude!,
                         longitude: longitude!,
-                        date: nil)
-//                        date: postDateTime.date)
-        APIHelper.postData(post: post, httpMethod: "DELETE") { response in
+                        dateTime: nil,
+                        emailAddress: emailAddress!,
+                        image: nil)
+        
+        APIHelper.postData(post: post, httpMethod: "POST")
+        { response in
             switch response {
-            case .success(let post):
-                print("success")
+            case .success(let _):
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "unwindToHome", sender: self)
+                }
             case .failure(let error):
-                print("success")
+                print(error)
             }
         }
-        //call API to post
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

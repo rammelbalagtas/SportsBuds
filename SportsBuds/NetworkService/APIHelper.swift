@@ -13,7 +13,7 @@ enum FetchResult {
 }
 
 enum PostApiResult {
-    case success([PostApi])
+    case success([Post])
     case failure(Error)
 }
 
@@ -63,7 +63,7 @@ struct APIHelper {
             case .success(let data):
                 do {
                     let decoder = JSONDecoder()
-                    let postApiList = try decoder.decode([PostApi].self, from: data)
+                    let postApiList = try decoder.decode([Post].self, from: data)
                     callback(.success(postApiList))
                 } catch let e {
                     print("could not parse json data \(e)")
@@ -121,6 +121,7 @@ struct APIHelper {
                         callback(.success(post))
                     } catch let e {
                         print("could not parse json data: \(e)")
+                        callback(.success(post))
                     }
                 }
             }

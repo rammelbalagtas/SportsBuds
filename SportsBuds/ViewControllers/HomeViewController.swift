@@ -9,8 +9,9 @@ import UIKit
 
 class HomeViewController: UIViewController, UICollectionViewDelegate, UITableViewDelegate {
     
-    var myPostList = [PostApi]()
-    var myFavList = [PostApi]()
+    var emailAddress: String?
+    var myPostList = [Post]()
+    var myFavList = [Post]()
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -26,20 +27,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UITableVie
         tableView.delegate = self
         tableView.dataSource = self
         
-        APIHelper.fetchPost(url: "\(APIHelper.baseURL)/api/posts")
-        { [self] response in
-            switch response {
-            case .success(let data):
-                myPostList = data
-                myFavList = data
-                DispatchQueue.main.async {
-                    tableView.reloadData()
-                    collectionView.reloadData()
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
+        loadData()
+
     }
     
     //Register nib for collection view and table view cells
@@ -53,18 +42,44 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UITableVie
         let nibTable = UINib(nibName: Constants.NibName.nibMyFavTable, bundle: nil)
         tableView.register(nibTable, forCellReuseIdentifier: Constants.ReuseIdentifier.myFavTableViewCell)
     }
-
-
-    /*
+    
+    func loadData() {
+        APIHelper.fetchPost(url: "\(APIHelper.baseURL)/api/posts")
+        { [self] response in
+            switch response {
+            case .success(let data):
+                myPostList = data
+                myFavList = data
+                DispatchQueue.main.async { [self] in
+                    tableView.reloadData()
+                    collectionView.reloadData()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    @IBAction func unwindToHome( _ seg: UIStoryboardSegue) {
+        loadData()
+    }
+    
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let destination = segue.destination as? PostDetailViewController {
+            destination.emailAddress = emailAddress
+            if segue.identifier == "ViewMyPost" {
+                if let indexPaths = collectionView.indexPathsForSelectedItems {
+                    destination.post = myFavList[indexPaths[0].row]
+                }
+            } else if segue.identifier == "ViewFavorite" {
+                if let indexPath = tableView.indexPathForSelectedRow {
+                    destination.post = myFavList[indexPath.row]
+                }
+            }
+        }
     }
-    */
-
 }
 
 extension HomeViewController: UICollectionViewDataSource, UITableViewDataSource {
@@ -82,6 +97,10 @@ extension HomeViewController: UICollectionViewDataSource, UITableViewDataSource 
         let post = myPostList[indexPath.row]
         cell.configureCell(using: post)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "ViewMyPost", sender: self)
     }
     
     // number of sections
@@ -102,6 +121,10 @@ extension HomeViewController: UICollectionViewDataSource, UITableViewDataSource 
         let post = myFavList[indexPath.row]
         cell.configureCell(using: post)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "ViewFavorite", sender: self)
     }
     
 }

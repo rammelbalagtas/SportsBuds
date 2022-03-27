@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E18F24027EFC35300BE8793 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E18F23F27EFC35300BE8793 /* RootTabBarController.swift */; };
 		6E63E61627E4E055003F0269 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E63E61527E4E055003F0269 /* PostDetailViewController.swift */; };
 		6E63E63A27E614F7003F0269 /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E63E63927E614F7003F0269 /* LocationSearchViewController.swift */; };
 		6E7BAADB27D9A3E0002AC206 /* MyFavTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7BAAD927D9A3E0002AC206 /* MyFavTableViewCell.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		0E02235E07512D2E14397EFD /* Pods-SportsBuds.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsBuds.release.xcconfig"; path = "Target Support Files/Pods-SportsBuds/Pods-SportsBuds.release.xcconfig"; sourceTree = "<group>"; };
+		6E18F23F27EFC35300BE8793 /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 		6E63E61527E4E055003F0269 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		6E63E63927E614F7003F0269 /* LocationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
 		6E7BAAD927D9A3E0002AC206 /* MyFavTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavTableViewCell.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				6EDFAA1427D8502A00397859 /* ProfileViewController.swift */,
 				6E63E61527E4E055003F0269 /* PostDetailViewController.swift */,
 				6E63E63927E614F7003F0269 /* LocationSearchViewController.swift */,
+				6E18F23F27EFC35300BE8793 /* RootTabBarController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EBA74ED27D7B20A00EE427B /* AppDelegate.swift in Sources */,
+				6E18F24027EFC35300BE8793 /* RootTabBarController.swift in Sources */,
 				6E63E61627E4E055003F0269 /* PostDetailViewController.swift in Sources */,
 				6E7BAADB27D9A3E0002AC206 /* MyFavTableViewCell.swift in Sources */,
 				6EBA750227D7B32F00EE427B /* SignUpViewController.swift in Sources */,
