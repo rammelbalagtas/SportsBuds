@@ -100,5 +100,149 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FE97B0B8-B3EA-44B8-A07E-1407B71645FB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SportsBuds/ViewControllers/PostDetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FE97B0B8-B3EA-44B8-A07E-1407B71645FB - fb02a0c1cc6a1265"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SportsBuds.PostDetailViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "SportsBuds"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rbalagtas/Downloads/SwiftAppDemo/SportsBuds/SportsBuds/ViewControllers/PostDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "153">
+               </Location>
+               <Location
+                  uuid = "FE97B0B8-B3EA-44B8-A07E-1407B71645FB - fb02a0c1cc6a1265"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SportsBuds.PostDetailViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "SportsBuds"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rbalagtas/Downloads/SwiftAppDemo/SportsBuds/SportsBuds/ViewControllers/PostDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "209">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D17B4009-9DA9-43E6-9151-01F47A7892E2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SportsBuds/ViewControllers/PostDetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "saveAction(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "36980E3C-740F-4CB9-A99E-ABD1186606FD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SportsBuds/ViewControllers/PostDetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "saveAction(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "36980E3C-740F-4CB9-A99E-ABD1186606FD - 7ef410097cc6a6fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SportsBuds.PostDetailViewController.saveAction(__C.UIButton) -&gt; ()"
+                  moduleName = "SportsBuds"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rbalagtas/Downloads/SwiftAppDemo/SportsBuds/SportsBuds/ViewControllers/PostDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "177">
+               </Location>
+               <Location
+                  uuid = "36980E3C-740F-4CB9-A99E-ABD1186606FD - 7ef410097cc6a6fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SportsBuds.PostDetailViewController.saveAction(__C.UIButton) -&gt; ()"
+                  moduleName = "SportsBuds"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rbalagtas/Downloads/SwiftAppDemo/SportsBuds/SportsBuds/ViewControllers/PostDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "233">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4E14A60C-D762-43B5-982A-EA64CB0AED57"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SportsBuds/NetworkService/APIHelper.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "postData(url:post:httpMethod:callback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C4BE35DB-6119-447B-9186-66162A9F46DD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SportsBuds/NetworkService/APIHelper.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "postData(url:post:httpMethod:callback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

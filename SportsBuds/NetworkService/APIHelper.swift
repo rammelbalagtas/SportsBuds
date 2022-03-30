@@ -124,6 +124,8 @@ struct APIHelper {
                         callback(.success(post))
                     }
                 }
+            } else {
+                callback(.success(post))
             }
             
         }

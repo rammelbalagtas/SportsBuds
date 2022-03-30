@@ -521,23 +521,35 @@
                                             <constraint firstItem="cfV-kx-MCc" firstAttribute="width" secondItem="Lak-1Q-hCl" secondAttribute="width" id="zC7-TC-vmJ"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mHD-v6-fme">
-                                        <rect key="frame" x="0.0" y="551.5" width="398" height="72"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mHD-v6-fme">
+                                        <rect key="frame" x="0.0" y="551.5" width="398" height="31"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LyQ-u8-zDX">
-                                                <rect key="frame" x="0.0" y="0.0" width="398" height="31"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="126" height="31"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Edit"/>
+                                                <buttonConfiguration key="configuration" style="filled" image="pencil" catalog="system" title="Edit"/>
                                                 <connections>
                                                     <action selector="editAction:" destination="fhT-Ou-T1a" eventType="touchUpInside" id="1cd-IB-KAf"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LYu-iY-2m8">
-                                                <rect key="frame" x="0.0" y="41" width="398" height="31"/>
+                                                <rect key="frame" x="136" y="0.0" width="126" height="31"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Save"/>
+                                                <buttonConfiguration key="configuration" style="filled" image="tray.fill" catalog="system" title="Save">
+                                                    <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                                </buttonConfiguration>
                                                 <connections>
                                                     <action selector="saveAction:" destination="fhT-Ou-T1a" eventType="touchUpInside" id="6bg-1w-3qW"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yMU-T4-ACT">
+                                                <rect key="frame" x="272" y="0.0" width="126" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" image="trash.fill" catalog="system" title="Delete">
+                                                    <color key="baseBackgroundColor" systemColor="systemRedColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="deleteAction:" destination="fhT-Ou-T1a" eventType="touchUpInside" id="RMr-MA-C4i"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -546,7 +558,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UOa-D4-2f8">
-                                        <rect key="frame" x="0.0" y="643.5" width="398" height="63.5"/>
+                                        <rect key="frame" x="0.0" y="602.5" width="398" height="104.5"/>
                                     </stackView>
                                 </subviews>
                             </stackView>
@@ -563,6 +575,7 @@
                     <navigationItem key="navigationItem" title="Post" id="FyH-dq-iuI"/>
                     <connections>
                         <outlet property="addLocationButton" destination="V1q-43-GLo" id="c09-KI-97Y"/>
+                        <outlet property="buttonStackView" destination="mHD-v6-fme" id="pZ6-AL-L1Y"/>
                         <outlet property="descriptionTextView" destination="4Fo-t3-ibm" id="TCx-Qn-Buy"/>
                         <outlet property="editButton" destination="LyQ-u8-zDX" id="Vcy-ce-4YD"/>
                         <outlet property="locationText" destination="bXq-69-AVT" id="dPR-Ql-jfI"/>
@@ -718,7 +731,10 @@
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="location" catalog="system" width="128" height="118"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="trash.fill" catalog="system" width="121" height="128"/>
+        <image name="tray.fill" catalog="system" width="128" height="88"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

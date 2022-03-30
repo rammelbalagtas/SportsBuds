@@ -15,6 +15,7 @@ class PostDetailViewController: UIViewController {
     var longitude: CLLocationDegrees?
     var latitude: CLLocationDegrees?
     
+    @IBOutlet weak var buttonStackView: UIStackView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var sportTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
@@ -31,11 +32,23 @@ class PostDetailViewController: UIViewController {
         descriptionTextView.isUserInteractionEnabled = true
         postDateTime.isUserInteractionEnabled = true
         addLocationButton.isUserInteractionEnabled = true
+        addLocationButton.isEnabled = true
     }
     
     @IBAction func saveAction(_ sender: UIButton) {
         
-        let post = Post(id: 0,
+        var id = 0
+        var httpMethod = ""
+        
+        if let post = self.post {
+            id = post.id
+            httpMethod = "PUT"
+        } else {
+            id = 0
+            httpMethod = "POST"
+        }
+        
+        let post = Post(id: id,
                         title: titleTextField.text!,
                         sport: sportTextField.text!,
                         description: descriptionTextView.text,
@@ -46,10 +59,10 @@ class PostDetailViewController: UIViewController {
                         emailAddress: emailAddress!,
                         image: nil)
         
-        APIHelper.postData(post: post, httpMethod: "POST")
+        APIHelper.postData(post: post, httpMethod: httpMethod)
         { response in
             switch response {
-            case .success(let _):
+            case .success( _):
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "unwindToHome", sender: self)
                 }
@@ -59,23 +72,45 @@ class PostDetailViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func deleteAction(_ sender: UIButton) {
+        APIHelper.postData(post: post!, httpMethod: "DELETE")
+        { response in
+            switch response {
+            case .success( _):
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "unwindToHome", sender: self)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        addLocationButton.isEnabled = false	
-        
+
         //disable editing by default for existing post
-//        if let post = post {
-//            if post.id != 0 {
-//                titleTextField.isUserInteractionEnabled = false
-//                sportTextField.isUserInteractionEnabled = false
-//                descriptionTextView.isUserInteractionEnabled = false
-//                postDateTime.isUserInteractionEnabled = false
-//                addLocationButton.isUserInteractionEnabled = false
-//            }
-//        } else {
-////            editButton.alpha = 0
-//        }
+        if let post = post {
+            //bind values
+            titleTextField.text = post.title
+            sportTextField.text = post.sport
+            descriptionTextView.text = post.description
+            locationText.text = post.location
+            latitude = post.latitude
+            longitude = post.longitude
+            
+            //set editability of fields
+            titleTextField.isUserInteractionEnabled = false
+            sportTextField.isUserInteractionEnabled = false
+            descriptionTextView.isUserInteractionEnabled = false
+            postDateTime.isUserInteractionEnabled = false
+            addLocationButton.isUserInteractionEnabled = false
+            if post.emailAddress != emailAddress {
+                buttonStackView.alpha = 0
+            }
+        }
         
         //add border to textview
         let borderColor : UIColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0)
