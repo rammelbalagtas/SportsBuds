@@ -8,7 +8,9 @@
 import UIKit
 
 class ListResultViewController: UIViewController, UITableViewDelegate {
-
+    
+    var postList = [Post]()
+    
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +22,19 @@ class ListResultViewController: UIViewController, UITableViewDelegate {
         
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
-        // Do any additional setup after loading the view.
+        
+        PostAPI.fetchPost(url: PostAPI.postURL, parameters: [:])
+        { [self] response in
+            switch response {
+            case .success(let data):
+                postList = data
+                DispatchQueue.main.async { [self] in
+                    tableView.reloadData()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
         
     }
     
@@ -37,16 +51,9 @@ class ListResultViewController: UIViewController, UITableViewDelegate {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? PostDetailViewController {
-//            destination.emailAddress = emailAddress
-//            if segue.identifier == "ViewMyPost" {
-//                if let indexPaths = collectionView.indexPathsForSelectedItems {
-//                    destination.post = myFavList[indexPaths[0].row]
-//                }
-//            } else if segue.identifier == "ViewFavorite" {
-//                if let indexPath = tableView.indexPathForSelectedRow {
-//                    destination.post = myFavList[indexPath.row]
-//                }
-//            }
+            if let indexPath = tableView.indexPathForSelectedRow {
+                destination.post = postList[indexPath.row]
+            }
         }
     }
 
@@ -65,7 +72,7 @@ extension ListResultViewController: UITableViewDataSource {
     
     // number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return postList.count
     }
     
     // data per table view cell
@@ -73,11 +80,20 @@ extension ListResultViewController: UITableViewDataSource {
         guard
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.ReuseIdentifier.searchResultViewCell, for: indexPath) as? SearchResultTableViewCell
         else{preconditionFailure("unable to dequeue reusable cell")}
+        let post = postList[indexPath.row]
+        cell.configureCell(using: post)
+        cell.delegate = self
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        performSegue(withIdentifier: "ViewFavorite", sender: self)
+        performSegue(withIdentifier: "showPostSegue", sender: self)
     }
     
+}
+
+extension ListResultViewController: SearchResultTableCell {
+    func addToFavorites() {
+
+    }
 }

@@ -47,15 +47,27 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UITableVie
     }
     
     func loadData() {
-        APIHelper.fetchPost(url: "\(APIHelper.baseURL)/api/posts")
+        
+        PostAPI.fetchPost(url: PostAPI.postURL, parameters: [:])
         { [self] response in
             switch response {
             case .success(let data):
                 myPostList = data
+                DispatchQueue.main.async { [self] in
+                    collectionView.reloadData()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        FavoritesAPI.fetchFavorites(url: FavoritesAPI.favoritesURL, parameters: ["emailAddress": emailAddress!])
+        { [self] response in
+            switch response {
+            case .success(let data):
                 myFavList = data
                 DispatchQueue.main.async { [self] in
                     tableView.reloadData()
-                    collectionView.reloadData()
                 }
             case .failure(let error):
                 print(error)
@@ -74,7 +86,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UITableVie
             destination.emailAddress = emailAddress
             if segue.identifier == "ViewMyPost" {
                 if let indexPaths = collectionView.indexPathsForSelectedItems {
-                    destination.post = myFavList[indexPaths[0].row]
+                    destination.post = myPostList[indexPaths[0].row]
                 }
             } else if segue.identifier == "ViewFavorite" {
                 if let indexPath = tableView.indexPathForSelectedRow {

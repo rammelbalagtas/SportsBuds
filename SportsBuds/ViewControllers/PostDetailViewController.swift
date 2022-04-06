@@ -25,6 +25,7 @@ class PostDetailViewController: UIViewController {
     @IBOutlet weak var addLocationButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     
     @IBAction func editAction(_ sender: UIButton) {
         titleTextField.isUserInteractionEnabled = true
@@ -38,14 +39,11 @@ class PostDetailViewController: UIViewController {
     @IBAction func saveAction(_ sender: UIButton) {
         
         var id = 0
-        var httpMethod = ""
         
         if let post = self.post {
             id = post.id
-            httpMethod = "PUT"
         } else {
             id = 0
-            httpMethod = "POST"
         }
         
         let post = Post(id: id,
@@ -58,23 +56,35 @@ class PostDetailViewController: UIViewController {
                         dateTime: nil,
                         emailAddress: emailAddress!,
                         image: nil)
-        
-        APIHelper.postData(post: post, httpMethod: httpMethod)
-        { response in
-            switch response {
-            case .success( _):
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "unwindToHome", sender: self)
+        if id == 0 {
+            PostAPI.create(post: post)
+            { response in
+                switch response {
+                case .success( _):
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "unwindToHome", sender: self)
+                    }
+                case .failure(let error):
+                    print(error)
                 }
-            case .failure(let error):
-                print(error)
+            }
+        } else {
+            PostAPI.update(post: post)
+            { response in
+                switch response {
+                case .success( _):
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "unwindToHome", sender: self)
+                    }
+                case .failure(let error):
+                    print(error)
+                }
             }
         }
     }
-    
     
     @IBAction func deleteAction(_ sender: UIButton) {
-        APIHelper.postData(post: post!, httpMethod: "DELETE")
+        PostAPI.delete(post: post!)
         { response in
             switch response {
             case .success( _):
@@ -86,13 +96,13 @@ class PostDetailViewController: UIViewController {
             }
         }
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         //disable editing by default for existing post
         if let post = post {
+            
             //bind values
             titleTextField.text = post.title
             sportTextField.text = post.sport
@@ -110,6 +120,9 @@ class PostDetailViewController: UIViewController {
             if post.emailAddress != emailAddress {
                 buttonStackView.alpha = 0
             }
+        } else {
+            editButton.isEnabled = false
+            deleteButton.isEnabled = false
         }
         
         //add border to textview

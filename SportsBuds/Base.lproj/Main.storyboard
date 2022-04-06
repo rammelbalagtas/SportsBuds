@@ -396,11 +396,11 @@
             <objects>
                 <viewController id="fhT-Ou-T1a" customClass="PostDetailViewController" customModule="SportsBuds" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Va8-P9-jnT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Kwt-94-9cd">
-                                <rect key="frame" x="8" y="98" width="398" height="707"/>
+                                <rect key="frame" x="8" y="54" width="398" height="780"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pp7-TS-tXp">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="531.5"/>
@@ -558,7 +558,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UOa-D4-2f8">
-                                        <rect key="frame" x="0.0" y="602.5" width="398" height="104.5"/>
+                                        <rect key="frame" x="0.0" y="602.5" width="398" height="177.5"/>
                                     </stackView>
                                 </subviews>
                             </stackView>
@@ -576,6 +576,7 @@
                     <connections>
                         <outlet property="addLocationButton" destination="V1q-43-GLo" id="c09-KI-97Y"/>
                         <outlet property="buttonStackView" destination="mHD-v6-fme" id="pZ6-AL-L1Y"/>
+                        <outlet property="deleteButton" destination="yMU-T4-ACT" id="7bV-xi-Ygz"/>
                         <outlet property="descriptionTextView" destination="4Fo-t3-ibm" id="TCx-Qn-Buy"/>
                         <outlet property="editButton" destination="LyQ-u8-zDX" id="Vcy-ce-4YD"/>
                         <outlet property="locationText" destination="bXq-69-AVT" id="dPR-Ql-jfI"/>
@@ -637,7 +638,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hW6-bj-art" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="9Fe-hc-oqX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5705.7971014492759" y="-326.11607142857139"/>
+            <point key="canvasLocation" x="6165" y="-358"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="klV-P8-em3">
@@ -773,11 +774,12 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="CEV-Ak-JHO" id="MuA-iv-s6q"/>
+                        <segue destination="fhT-Ou-T1a" kind="show" identifier="showPostSegue" id="rte-tQ-vzD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4hy-Im-55z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4968" y="1030"/>
+            <point key="canvasLocation" x="5735" y="362"/>
         </scene>
         <!--Profile-->
         <scene sceneID="7Z3-cg-8sb">
@@ -797,7 +799,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="u5U-Gw-gbb"/>
+        <segue reference="rte-tQ-vzD"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="house.fill" catalog="system" width="128" height="106"/>
