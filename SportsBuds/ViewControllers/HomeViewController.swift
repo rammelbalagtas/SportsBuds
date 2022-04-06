@@ -27,6 +27,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UITableVie
         tableView.delegate = self
         tableView.dataSource = self
         
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableView.automaticDimension
+        
         loadData()
 
     }

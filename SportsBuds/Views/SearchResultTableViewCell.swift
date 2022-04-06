@@ -1,15 +1,20 @@
 //
-//  MyFavTableViewCell.swift
+//  SeaerchResultTableViewCell.swift
 //  SportsBuds
 //
-//  Created by Rammel on 2022-03-09.
+//  Created by Rammel on 2022-03-30.
 //
 
 import UIKit
 
-class MyFavTableViewCell: UITableViewCell {
+class SearchResultTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBAction func addToFavorites(_ sender: UIButton) {
+    }
+    
+    @IBOutlet weak var favoritesButton: UIButton!
+    @IBOutlet weak var postImageView: UIImageView!
+    @IBOutlet weak var postTitleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     
@@ -22,12 +27,6 @@ class MyFavTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-    }
-    
-    func configureCell(using post: Post) {
-        self.nameLabel.text = post.title
-        self.locationLabel.text = post.location
-        self.dateLabel.text = post.dateTime
     }
     
 }
