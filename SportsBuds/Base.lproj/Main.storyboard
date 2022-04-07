@@ -777,6 +777,9 @@
                             <constraint firstItem="qMg-N9-PK1" firstAttribute="bottom" secondItem="8fm-A0-iFb" secondAttribute="bottom" id="sv7-9N-fPc"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="8fm-A0-iFb" id="clt-TA-7cL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ddw-HG-9rr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
