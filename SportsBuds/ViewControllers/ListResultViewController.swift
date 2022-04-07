@@ -23,7 +23,7 @@ class ListResultViewController: UIViewController, UITableViewDelegate {
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
         
-        PostAPI.fetchPost(url: PostAPI.postURL, parameters: [:])
+        PostAPI.fetchPost(url: PostAPI.postURL, parameters: ["latitude":"13", "longitude": "12"])
         { [self] response in
             switch response {
             case .success(let data):
@@ -94,6 +94,6 @@ extension ListResultViewController: UITableViewDataSource {
 
 extension ListResultViewController: SearchResultTableCell {
     func addToFavorites() {
-
+        
     }
 }

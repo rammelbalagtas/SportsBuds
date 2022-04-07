@@ -48,7 +48,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UITableVie
     
     func loadData() {
         
-        PostAPI.fetchPost(url: PostAPI.postURL, parameters: [:])
+        PostAPI.fetchPost(url: PostAPI.postURL, parameters: ["emailAddress": emailAddress!])
         { [self] response in
             switch response {
             case .success(let data):

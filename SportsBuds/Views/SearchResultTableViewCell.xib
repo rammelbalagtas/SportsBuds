@@ -54,11 +54,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Szr-H9-a3a">
-                                        <rect key="frame" x="0.0" y="86.5" width="148" height="31"/>
+                                        <rect key="frame" x="0.0" y="86.5" width="159.5" height="31"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" image="star.fill" catalog="system" title="Add To Favorites">
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
-                                        </buttonConfiguration>
+                                        <buttonConfiguration key="configuration" style="filled" image="star.fill" catalog="system" title="Add To Favorites" imagePadding="5"/>
                                         <connections>
                                             <action selector="addToFavorites:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="IAP-b8-xFE"/>
                                         </connections>
