@@ -14,7 +14,9 @@ class PostDetailViewController: UIViewController {
     var emailAddress: String?
     var longitude: CLLocationDegrees?
     var latitude: CLLocationDegrees?
-    
+
+    @IBOutlet weak var addChangePhotoBtn: UIButton!
+    @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var buttonStackView: UIStackView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var sportTextField: UITextField!
@@ -26,6 +28,14 @@ class PostDetailViewController: UIViewController {
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
+    
+    @IBAction func addChangePhotoAction(_ sender: UIButton) {
+        let vc = UIImagePickerController()
+        vc.sourceType = .photoLibrary
+        vc.allowsEditing = true
+        vc.delegate = self
+        present(vc, animated: true)
+    }
     
     @IBAction func editAction(_ sender: UIButton) {
         titleTextField.isUserInteractionEnabled = true
@@ -147,4 +157,36 @@ class PostDetailViewController: UIViewController {
     }
     */
 
+}
+
+extension PostDetailViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+
+        guard let image = info[.editedImage] as? UIImage else {
+            print("No image found")
+            return
+        }
+        
+        guard
+            let imageData = image.jpegData(compressionQuality: 1.0)
+        else{return}
+        
+        ImageAPI.create(imageData: imageData, parameters: ["imageName":"test-image11"])
+        { response in
+            switch response {
+            case .success(_):
+                DispatchQueue.main.async {
+                    self.postImageView.image = image
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+
+        // print out the image size as a test
+        print(image.size)
+    }
+    
 }
