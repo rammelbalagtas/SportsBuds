@@ -7,16 +7,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "844A375F-4622-4C11-AA65-63B6858F51DF"
+            uuid = "64CBA15B-BBD8-4007-AFF9-6FE4CAEE301F"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SportsBuds/NetworkService/ImageAPI.swift"
+            filePath = "SportsBuds/ViewControllers/ListResultViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "create(url:imageData:parameters:callback:)"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "determineCurrentLocation()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E90C5330-523F-4D94-B8EE-C4CC1ED96DC2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SportsBuds/ViewControllers/ListResultViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "determineCurrentLocation()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3570B455-249B-4A70-B0A8-60C6A79D2DA8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SportsBuds/ViewControllers/MapResultViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "viewDidAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

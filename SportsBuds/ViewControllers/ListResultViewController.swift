@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ListResultViewController: UIViewController, UITableViewDelegate {
+class ListResultViewController: UIViewController, UITableViewDelegate, CLLocationManagerDelegate {
     
     var postList = [Post]()
+    var locationManager = CLLocationManager()
+    var currentLocation = CLLocation()
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -23,29 +26,57 @@ class ListResultViewController: UIViewController, UITableViewDelegate {
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
         
-        PostAPI.get(url: PostAPI.postURL, parameters: ["latitude":"13", "longitude": "12"])
-        { [self] response in
-            switch response {
-            case .success(let data):
-                postList = data
-                DispatchQueue.main.async { [self] in
-                    tableView.reloadData()
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
     }
     
-    //Register nib for collection view and table view cells
+    override func viewDidAppear(_ animated: Bool) {
+        determineCurrentLocation()
+    }
+    
+    // MARK: - Instance Methods
     func registerNib() {
-        
         //Register nib for table view
         let nibTable = UINib(nibName: Constants.NibName.nibSearchResultTable, bundle: nil)
         tableView.register(nibTable, forCellReuseIdentifier: Constants.ReuseIdentifier.searchResultViewCell)
     }
+
+    func determineCurrentLocation() {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestLocation()
+
+        if CLLocationManager.locationServicesEnabled() {
+            if let currentLocation = locationManager.location {
+                self.currentLocation = currentLocation
+                PostAPI.get(url: PostAPI.postURL,
+                            parameters: ["latitude": String(currentLocation.coordinate.latitude),
+                                         "longtitude": String(currentLocation.coordinate.longitude)])
+                { [self] response in
+                    switch response {
+                    case .success(let data):
+                        postList = data
+                        DispatchQueue.main.async { [self] in
+                            tableView.reloadData()
+                        }
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
+            }
+        }
+    }
     
+    // MARK: - CLLocationManagerDelegate Methods
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        let userLocation: CLLocation = locations[0] as CLLocation
+//        let center = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+//        let mRegion = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+//        mapView.setRegion(mRegion, animated: true)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Error - locationManager: \(error.localizedDescription)")
+    }
 
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
