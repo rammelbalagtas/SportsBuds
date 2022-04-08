@@ -28,7 +28,7 @@ struct PostAPI {
     }()
     
     //Fetch details of post
-    public static func fetchPost(url: String, parameters: [String: String]?, callback: @escaping (PostApiResult) -> Void){
+    public static func get(url: String, parameters: [String: String]?, callback: @escaping (PostApiResult) -> Void){
         guard
             let url = APIHelper.buildURL(url: url, parameters: parameters)
         else{return}

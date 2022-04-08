@@ -109,6 +109,18 @@ class PostDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ImageAPI.get(parameters: ["fileName":"test-image11"])
+        { response in
+            switch response {
+            case .success(let image):
+                DispatchQueue.main.async {
+                    self.postImageView.image = image
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
 
         //disable editing by default for existing post
         if let post = post {
@@ -169,24 +181,22 @@ extension PostDetailViewController: UINavigationControllerDelegate, UIImagePicke
             return
         }
         
-        guard
-            let imageData = image.jpegData(compressionQuality: 1.0)
-        else{return}
-        
-        ImageAPI.create(imageData: imageData, parameters: ["imageName":"test-image11"])
-        { response in
-            switch response {
-            case .success(_):
-                DispatchQueue.main.async {
-                    self.postImageView.image = image
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
-
-        // print out the image size as a test
-        print(image.size)
+        self.postImageView.image = image        
+//        guard
+//            let imageData = image.jpegData(compressionQuality: 1.0)
+//        else{return}
+//
+//        ImageAPI.create(imageData: imageData, parameters: ["imageName":"test-image11"])
+//        { response in
+//            switch response {
+//            case .success(_):
+//                DispatchQueue.main.async {
+//                    self.postImageView.image = image
+//                }
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
     }
     
 }

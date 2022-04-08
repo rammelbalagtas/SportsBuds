@@ -28,7 +28,7 @@ struct FavoritesAPI {
     }()
     
     //Fetch details of movie
-    public static func fetchFavorites(url: String, parameters: [String: String]?, callback: @escaping (FavoritesApiResult) -> Void){
+    public static func get(url: String, parameters: [String: String]?, callback: @escaping (FavoritesApiResult) -> Void){
         guard
             let url = APIHelper.buildURL(url: url, parameters: parameters)
         else{return}

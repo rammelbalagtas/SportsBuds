@@ -17,7 +17,7 @@ class MapResultViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         mapView.delegate = self
         
-        PostAPI.fetchPost(url: PostAPI.postURL, parameters: ["latitude": "12", "longtitude": "13"])
+        PostAPI.get(url: PostAPI.postURL, parameters: ["latitude": "12", "longtitude": "13"])
         { [self] response in
             switch response {
             case .success(let data):

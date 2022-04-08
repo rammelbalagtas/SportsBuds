@@ -48,7 +48,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UITableVie
     
     func loadData() {
         
-        PostAPI.fetchPost(url: PostAPI.postURL, parameters: ["emailAddress": emailAddress!])
+        PostAPI.get(url: PostAPI.postURL, parameters: ["emailAddress": emailAddress!])
         { [self] response in
             switch response {
             case .success(let data):
@@ -61,7 +61,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UITableVie
             }
         }
         
-        FavoritesAPI.fetchFavorites(url: FavoritesAPI.favoritesURL, parameters: ["emailAddress": emailAddress!])
+        FavoritesAPI.get(url: FavoritesAPI.favoritesURL, parameters: ["emailAddress": emailAddress!])
         { [self] response in
             switch response {
             case .success(let data):

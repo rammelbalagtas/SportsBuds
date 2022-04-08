@@ -23,7 +23,7 @@ class ListResultViewController: UIViewController, UITableViewDelegate {
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
         
-        PostAPI.fetchPost(url: PostAPI.postURL, parameters: ["latitude":"13", "longitude": "12"])
+        PostAPI.get(url: PostAPI.postURL, parameters: ["latitude":"13", "longitude": "12"])
         { [self] response in
             switch response {
             case .success(let data):
