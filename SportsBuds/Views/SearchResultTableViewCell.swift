@@ -45,11 +45,29 @@ class SearchResultTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureCell(using post: Post) {
+    func configureCell(using post: Post, emailAddress: String) {
         self.post = post
         self.postTitleLabel.text = post.title
         self.locationLabel.text = post.location
         self.dateLabel.text = post.dateTime
+        if let fileName = post.image {
+            ImageAPI.get(parameters: ["fileName": fileName])
+            { response in
+                switch response {
+                case .success(let image):
+                    DispatchQueue.main.async {
+                        self.postImageView.image = image
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
+        if post.emailAddress == emailAddress {
+            self.favoritesButton.alpha = 0
+        } else {
+            self.favoritesButton.alpha = 1
+        }
     }
     
 }

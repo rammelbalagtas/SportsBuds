@@ -49,6 +49,7 @@ class PostDetailViewController: UIViewController {
     @IBAction func saveAction(_ sender: UIButton) {
         
         var id = 0
+        var imageGUID: String? = nil
         
         if let post = self.post {
             id = post.id
@@ -56,6 +57,26 @@ class PostDetailViewController: UIViewController {
             id = 0
         }
         
+        //store image to blob storage
+        if let image = postImageView.image {
+            
+            guard
+                let imageData = image.jpegData(compressionQuality: 1.0)
+            else{return}
+            
+            imageGUID = "Posts/Pictures/\(UUID().uuidString).jpg"
+            ImageAPI.create(imageData: imageData, parameters: ["imageName": imageGUID! ])
+            { response in
+                switch response {
+                case .success(_):
+                    print("successfully uploaded photo")
+                case .failure(let error):
+                    imageGUID = nil
+                    print(error)
+                }
+            }
+        }
+       
         let post = Post(id: id,
                         title: titleTextField.text!,
                         sport: sportTextField.text!,
@@ -65,7 +86,7 @@ class PostDetailViewController: UIViewController {
                         longitude: longitude!,
                         dateTime: nil,
                         emailAddress: emailAddress!,
-                        image: nil)
+                        image: imageGUID)
         if id == 0 {
             PostAPI.create(post: post)
             { response in
@@ -109,22 +130,26 @@ class PostDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        ImageAPI.get(parameters: ["fileName":"test-image11"])
-        { response in
-            switch response {
-            case .success(let image):
-                DispatchQueue.main.async {
-                    self.postImageView.image = image
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
 
         //disable editing by default for existing post
         if let post = post {
             
+            if let fileName = post.image {
+                self.postImageView.startAnimating()
+                ImageAPI.get(parameters: ["fileName": fileName])
+                { response in
+                    switch response {
+                    case .success(let image):
+                        DispatchQueue.main.async {
+                            self.postImageView.image = image
+                            self.postImageView.stopAnimating()
+                        }
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
+            }
+
             //bind values
             titleTextField.text = post.title
             sportTextField.text = post.sport
@@ -141,6 +166,7 @@ class PostDetailViewController: UIViewController {
             addLocationButton.isUserInteractionEnabled = false
             if post.emailAddress != emailAddress {
                 buttonStackView.alpha = 0
+                addChangePhotoBtn.isEnabled = false
             }
         } else {
             editButton.isEnabled = false
@@ -157,17 +183,6 @@ class PostDetailViewController: UIViewController {
     
     @IBAction func unwindToPostDetail( _ seg: UIStoryboardSegue) {
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -181,22 +196,26 @@ extension PostDetailViewController: UINavigationControllerDelegate, UIImagePicke
             return
         }
         
-        self.postImageView.image = image        
-//        guard
-//            let imageData = image.jpegData(compressionQuality: 1.0)
-//        else{return}
+        self.postImageView.image = image
+        
+//        if let image = postImageView.image {
+//            guard
+//                let imageData = image.jpegData(compressionQuality: 1.0)
+//            else{return}
 //
-//        ImageAPI.create(imageData: imageData, parameters: ["imageName":"test-image11"])
-//        { response in
-//            switch response {
-//            case .success(_):
-//                DispatchQueue.main.async {
-//                    self.postImageView.image = image
+//            ImageAPI.create(imageData: imageData, parameters: ["imageName": "Posts/Pictures/1/\(UUID().uuidString).jpg"])
+//            { response in
+//                switch response {
+//                case .success(_):
+//                    DispatchQueue.main.async {
+//
+//                    }
+//                case .failure(let error):
+//                    print(error)
 //                }
-//            case .failure(let error):
-//                print(error)
 //            }
 //        }
+        
     }
     
 }

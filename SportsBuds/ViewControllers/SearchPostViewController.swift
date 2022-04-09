@@ -8,6 +8,8 @@
 import UIKit
 
 class SearchPostViewController: UIViewController {
+    
+    var emailAddress: String?
 
     @IBOutlet weak var viewSegmentedControl: UISegmentedControl!
     
@@ -34,6 +36,8 @@ class SearchPostViewController: UIViewController {
 
         // Instantiate View Controller
         var viewController = storyboard.instantiateViewController(withIdentifier: "ListResultViewController") as! ListResultViewController
+        
+        viewController.emailAddress = emailAddress
 
         // Add View Controller as Child View Controller
         self.add(asChildViewController: viewController)

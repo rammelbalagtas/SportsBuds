@@ -96,6 +96,16 @@ class SignUpViewController: UIViewController {
         let rootTabBarController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.rootTabBarController) as? UITabBarController
         view.window?.rootViewController = rootTabBarController
         view.window?.makeKeyAndVisible()
+        
+        // Pass dependency to home screen
+        let navControllers = rootTabBarController!.viewControllers
+        let homeNavController = navControllers![0] as? UINavigationController
+        let homeViewController = homeNavController?.topViewController as! HomeViewController
+        homeViewController.emailAddress = emailAddressText.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        let searchNavController = navControllers![1] as? UINavigationController
+        let searchVC = searchNavController?.topViewController as! SearchPostViewController
+        searchVC.emailAddress = emailAddressText.text!.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
 }

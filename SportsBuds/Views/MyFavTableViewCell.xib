@@ -19,7 +19,7 @@
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fet-dh-Bxk">
                         <rect key="frame" x="8" y="8" width="450" height="170"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="running" translatesAutoresizingMaskIntoConstraints="NO" id="vzy-fA-aKm">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vzy-fA-aKm">
                                 <rect key="frame" x="0.0" y="35" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="9Zx-EM-CwD"/>
@@ -62,13 +62,13 @@
             <connections>
                 <outlet property="dateLabel" destination="KHg-77-Cu5" id="G27-mX-uTh"/>
                 <outlet property="locationLabel" destination="ixz-4Y-Fd7" id="Cr9-ae-wzA"/>
+                <outlet property="myFavImage" destination="vzy-fA-aKm" id="mWW-Db-4Sh"/>
                 <outlet property="nameLabel" destination="exY-nk-BI7" id="RDq-WI-FPv"/>
             </connections>
             <point key="canvasLocation" x="-111.59420289855073" y="-22.767857142857142"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="running" width="320" height="213.5"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

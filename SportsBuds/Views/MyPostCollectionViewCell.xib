@@ -16,25 +16,40 @@
                 <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fEb-wt-ZTD">
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="fEb-wt-ZTD">
                         <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="basketball" translatesAutoresizingMaskIntoConstraints="NO" id="rpE-kw-zOD">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2cH-Cf-1Ij">
                                 <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rpE-kw-zOD">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="eLm-sL-AZp"/>
+                                            <constraint firstAttribute="width" constant="150" id="k2r-WR-yu1"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bUc-eT-Lxw">
+                                <rect key="frame" x="0.0" y="155" width="150" height="45"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mr-dK-32I">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="45"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="eLm-sL-AZp"/>
-                                    <constraint firstAttribute="width" constant="150" id="k2r-WR-yu1"/>
+                                    <constraint firstAttribute="trailing" secondItem="9mr-dK-32I" secondAttribute="trailing" id="Rtq-qw-FpZ"/>
+                                    <constraint firstItem="9mr-dK-32I" firstAttribute="leading" secondItem="bUc-eT-Lxw" secondAttribute="leading" id="n4P-ua-2HP"/>
                                 </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mr-dK-32I">
-                                <rect key="frame" x="0.0" y="158" width="150" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="9mr-dK-32I" secondAttribute="trailing" id="N3y-eA-Pcf"/>
+                            <constraint firstItem="bUc-eT-Lxw" firstAttribute="leading" secondItem="fEb-wt-ZTD" secondAttribute="leading" id="R0d-2r-rI3"/>
+                            <constraint firstAttribute="trailing" secondItem="bUc-eT-Lxw" secondAttribute="trailing" id="YUz-Xe-z7f"/>
                         </constraints>
                     </stackView>
                 </subviews>
@@ -48,12 +63,10 @@
             </constraints>
             <size key="customSize" width="315" height="280"/>
             <connections>
+                <outlet property="myPostImage" destination="rpE-kw-zOD" id="Bc5-5L-PCd"/>
                 <outlet property="titleLabel" destination="9mr-dK-32I" id="tkI-jt-UeJ"/>
             </connections>
             <point key="canvasLocation" x="214.49275362318843" y="105.80357142857143"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="basketball" width="320" height="208.5"/>
-    </resources>
 </document>

@@ -10,6 +10,7 @@ import CoreLocation
 
 class ListResultViewController: UIViewController, UITableViewDelegate, CLLocationManagerDelegate {
     
+    var emailAddress: String?
     var postList = [Post]()
     var locationManager = CLLocationManager()
     var currentLocation = CLLocation()
@@ -50,7 +51,7 @@ class ListResultViewController: UIViewController, UITableViewDelegate, CLLocatio
                 self.currentLocation = currentLocation
                 PostAPI.get(url: PostAPI.postURL,
                             parameters: ["latitude": String(currentLocation.coordinate.latitude),
-                                         "longtitude": String(currentLocation.coordinate.longitude)])
+                                         "longitude": String(currentLocation.coordinate.longitude)])
                 { [self] response in
                     switch response {
                     case .success(let data):
@@ -84,6 +85,7 @@ class ListResultViewController: UIViewController, UITableViewDelegate, CLLocatio
         if let destination = segue.destination as? PostDetailViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 destination.post = postList[indexPath.row]
+                destination.emailAddress = emailAddress
             }
         }
     }
@@ -112,7 +114,7 @@ extension ListResultViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.ReuseIdentifier.searchResultViewCell, for: indexPath) as? SearchResultTableViewCell
         else{preconditionFailure("unable to dequeue reusable cell")}
         let post = postList[indexPath.row]
-        cell.configureCell(using: post)
+        cell.configureCell(using: post, emailAddress: emailAddress!)
         cell.delegate = self
         return cell
     }

@@ -12,7 +12,7 @@ class MyFavTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
-    
+    @IBOutlet weak var myFavImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,6 +28,19 @@ class MyFavTableViewCell: UITableViewCell {
         self.nameLabel.text = post.title
         self.locationLabel.text = post.location
         self.dateLabel.text = post.dateTime
+        if let fileName = post.image {
+            ImageAPI.get(parameters: ["fileName": fileName])
+            { response in
+                switch response {
+                case .success(let image):
+                    DispatchQueue.main.async {
+                        self.myFavImage.image = image
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
     }
     
 }
