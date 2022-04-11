@@ -47,7 +47,7 @@ class PostDetailViewController: UIViewController {
     }
     
     @IBAction func saveAction(_ sender: UIButton) {
-        
+
         var id = 0
         var imageGUID: String? = nil
         
@@ -59,7 +59,6 @@ class PostDetailViewController: UIViewController {
         
         //store image to blob storage
         if let image = postImageView.image {
-            
             guard
                 let imageData = image.jpegData(compressionQuality: 1.0)
             else{return}
@@ -76,7 +75,8 @@ class PostDetailViewController: UIViewController {
                 }
             }
         }
-       
+        
+        let date = extractTimeComponents(postDate: postDateTime.date)
         let post = Post(id: id,
                         title: titleTextField.text!,
                         sport: sportTextField.text!,
@@ -84,7 +84,7 @@ class PostDetailViewController: UIViewController {
                         location: locationText.text!,
                         latitude: latitude!,
                         longitude: longitude!,
-                        dateTime: nil,
+                        dateTime: date,
                         emailAddress: emailAddress!,
                         image: imageGUID)
         if id == 0 {
@@ -150,13 +150,14 @@ class PostDetailViewController: UIViewController {
                 }
             }
 
-            //bind values
+            //bind values to view
             titleTextField.text = post.title
             sportTextField.text = post.sport
             descriptionTextView.text = post.description
             locationText.text = post.location
             latitude = post.latitude
             longitude = post.longitude
+            setDatePicker()
             
             //set editability of fields
             titleTextField.isUserInteractionEnabled = false
@@ -179,6 +180,36 @@ class PostDetailViewController: UIViewController {
         descriptionTextView.layer.borderColor = borderColor.cgColor
         descriptionTextView.layer.cornerRadius = 5.0
         // Do any additional setup after loading the view.
+    }
+    
+    func extractTimeComponents(postDate: Date) -> String {
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: postDate)
+        let minute = calendar.component(.minute, from: postDate)
+        let second = calendar.component(.second, from: postDate)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let date = dateFormatter.string(from: postDate)
+        return "\(date)T\(String(format: "%02d", hour)):\(String(format: "%02d", minute)):\(String(format: "%02d", second))"
+    }
+    
+    func setDatePicker() {
+        if let dateTimeArray = post?.dateTime!.components(separatedBy: "T") {
+            var date = DateComponents()
+            let dateValue = dateTimeArray[0]
+            let timeValue = dateTimeArray[1]
+            let dateArray = dateValue.components(separatedBy: "-")
+            let timeArray = timeValue.components(separatedBy: ":")
+            date.year = Int(dateArray[0])
+            date.month = Int(dateArray[1])
+            date.day = Int(dateArray[2])
+            date.hour = Int(timeArray[0])
+            date.minute = Int(timeArray[1])
+            date.second = Int(timeArray[2])
+            let userCalendar = Calendar.current
+            let dateAndTime = userCalendar.date(from: date)
+            postDateTime.setDate(dateAndTime!, animated: .random())
+        }
     }
     
     @IBAction func unwindToPostDetail( _ seg: UIStoryboardSegue) {
