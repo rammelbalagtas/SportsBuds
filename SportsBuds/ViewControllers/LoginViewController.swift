@@ -62,6 +62,10 @@ class LoginViewController: UIViewController {
         let searchNavController = navControllers![1] as? UINavigationController
         let searchVC = searchNavController?.topViewController as! SearchPostViewController
         searchVC.emailAddress = emailAddressText.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        let profileNavController = navControllers![2] as? UINavigationController
+        let profileVC = profileNavController?.topViewController as! ProfileViewController
+        profileVC.emailAddress = emailAddressText.text!.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
 }
