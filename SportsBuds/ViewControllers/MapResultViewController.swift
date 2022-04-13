@@ -25,12 +25,12 @@ class MapResultViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        determineCurrentLocation()
+        showPostAnnotations()
     }
     
     // MARK: - Instance Methods
 
-    func determineCurrentLocation() {
+    func showPostAnnotations() {
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -58,10 +58,13 @@ class MapResultViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
     func addAnnotations() {
+        var annotations = [MKAnnotation]()
         for post in postList {
             let postAnnotation = PostMapAnnotation(title: post.title, coordinate: CLLocationCoordinate2D(latitude: post.latitude!, longitude: post.longitude!), info: post.location!)
-            mapView.addAnnotation(postAnnotation)
+            annotations.append(postAnnotation)
         }
+        mapView.showAnnotations(annotations, animated: .random())
+        
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
