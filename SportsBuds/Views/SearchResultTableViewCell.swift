@@ -50,6 +50,7 @@ class SearchResultTableViewCell: UITableViewCell {
         self.locationLabel.text = post.location
         let dateSubstring: Substring = post.dateTime!.prefix(10)
         self.dateLabel.text = String(dateSubstring)
+        postImageView.image = nil
         if let fileName = post.image {
             ImageAPI.get(parameters: ["fileName": fileName])
             { response in

@@ -29,6 +29,7 @@ class MyFavTableViewCell: UITableViewCell {
         self.locationLabel.text = post.location
         let dateSubstring: Substring = post.dateTime!.prefix(10)
         self.dateLabel.text = String(dateSubstring)
+        self.myFavImage.image = nil
         if let fileName = post.image {
             ImageAPI.get(parameters: ["fileName": fileName])
             { response in

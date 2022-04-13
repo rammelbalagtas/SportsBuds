@@ -19,6 +19,7 @@ class MyPostCollectionViewCell: UICollectionViewCell {
     
     func configureCell(using post: Post) {
         self.titleLabel.text = post.title
+        self.myPostImage.image = nil
         if let fileName = post.image {
             ImageAPI.get(parameters: ["fileName": fileName])
             { response in

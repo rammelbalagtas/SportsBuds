@@ -229,24 +229,6 @@ extension PostDetailViewController: UINavigationControllerDelegate, UIImagePicke
         
         self.postImageView.image = image
         
-//        if let image = postImageView.image {
-//            guard
-//                let imageData = image.jpegData(compressionQuality: 1.0)
-//            else{return}
-//
-//            ImageAPI.create(imageData: imageData, parameters: ["imageName": "Posts/Pictures/1/\(UUID().uuidString).jpg"])
-//            { response in
-//                switch response {
-//                case .success(_):
-//                    DispatchQueue.main.async {
-//
-//                    }
-//                case .failure(let error):
-//                    print(error)
-//                }
-//            }
-//        }
-        
     }
     
 }
