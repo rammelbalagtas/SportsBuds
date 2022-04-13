@@ -25,14 +25,13 @@ class SearchResultTableViewCell: UITableViewCell {
     
     @IBAction func addRemoveFavorites(_ sender: UIButton) {
         if self.isFav {
-            self.isFav.toggle()
-            self.favoritesButton.titleLabel?.text = "Add To Favorites"
+            self.favoritesButton.setTitle("Add To Favorites", for: .normal)
             self.delegate.removeFromFavorites(id: post.id)
         } else {
-            self.isFav.toggle()
-            self.favoritesButton.titleLabel?.text = "Remove From Favorites"
+            self.favoritesButton.setTitle("Remove From Favorites", for: .normal)
             self.delegate.addToFavorites(id: post.id)
-        } 
+        }
+        self.isFav.toggle()
     }
     
     override func awakeFromNib() {
@@ -69,15 +68,14 @@ class SearchResultTableViewCell: UITableViewCell {
             self.favoritesButton.alpha = 0
         } else {
             self.favoritesButton.alpha = 1
+            self.isFav = isFav
+            if isFav {
+                self.favoritesButton.setTitle("Remove From Favorites", for: .normal)
+            } else {
+                self.favoritesButton.setTitle("Add To Favorites", for: .normal)
+            }
         }
-        
-        self.isFav = isFav
-        
-        if isFav {
-            self.favoritesButton.titleLabel?.text = "Remove From Favorites"
-        } else {
-            self.favoritesButton.titleLabel?.text = "Add To Favorites"
-        }
+
     }
     
 }

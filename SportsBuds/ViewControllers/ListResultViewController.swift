@@ -121,7 +121,10 @@ extension ListResultViewController: UITableViewDataSource {
         else{preconditionFailure("unable to dequeue reusable cell")}
         if postList.count == 0 {return cell}
         let post = postList[indexPath.row]
-        let isFav = favList.contains(where: { $0.id == post.id })
+        var isFav = false
+        if post.emailAddress != emailAddress {
+            isFav = favList.contains(where: { $0.id == post.id })
+        }
         cell.delegate = self
         cell.configureCell(using: post, emailAddress: emailAddress!, isFav: isFav)
         return cell
