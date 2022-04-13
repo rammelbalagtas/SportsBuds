@@ -8,31 +8,31 @@
 import UIKit
 
 protocol SearchResultTableCell {
-    func addToFavorites()
+    func addToFavorites(id: Int)
+    func removeFromFavorites(id: Int)
 }
 
 class SearchResultTableViewCell: UITableViewCell {
     
     var delegate: SearchResultTableCell!
     var post: Post!
+    var isFav: Bool!
     @IBOutlet weak var favoritesButton: UIButton!
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var postTitleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     
-    @IBAction func addToFavorites(_ sender: UIButton) {
-        FavoritesAPI.create(parameters: ["emailAddress":"test3@gmail.com", "postId": String(post.id)])
-        { response in
-            switch response {
-            case .success(_):
-                DispatchQueue.main.async { [self] in
-                    self.favoritesButton.titleLabel?.text = "Remove From Favorites"
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
+    @IBAction func addRemoveFavorites(_ sender: UIButton) {
+        if self.isFav {
+            self.isFav.toggle()
+            self.favoritesButton.titleLabel?.text = "Add To Favorites"
+            self.delegate.removeFromFavorites(id: post.id)
+        } else {
+            self.isFav.toggle()
+            self.favoritesButton.titleLabel?.text = "Remove From Favorites"
+            self.delegate.addToFavorites(id: post.id)
+        } 
     }
     
     override func awakeFromNib() {
@@ -45,7 +45,7 @@ class SearchResultTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureCell(using post: Post, emailAddress: String) {
+    func configureCell(using post: Post, emailAddress: String, isFav: Bool) {
         self.post = post
         self.postTitleLabel.text = post.title
         self.locationLabel.text = post.location
@@ -56,18 +56,27 @@ class SearchResultTableViewCell: UITableViewCell {
             { response in
                 switch response {
                 case .success(let image):
-                    DispatchQueue.main.async {
-                        self.postImageView.image = image
+                    DispatchQueue.main.async { [self] in
+                        postImageView.image = image
                     }
                 case .failure(let error):
                     print(error)
                 }
             }
         }
+        
         if post.emailAddress == emailAddress {
             self.favoritesButton.alpha = 0
         } else {
             self.favoritesButton.alpha = 1
+        }
+        
+        self.isFav = isFav
+        
+        if isFav {
+            self.favoritesButton.titleLabel?.text = "Remove From Favorites"
+        } else {
+            self.favoritesButton.titleLabel?.text = "Add To Favorites"
         }
     }
     

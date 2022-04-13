@@ -12,6 +12,7 @@ class ListResultViewController: UIViewController, UITableViewDelegate, CLLocatio
     
     var emailAddress: String?
     var postList = [Post]()
+    var favList = [Post]()
     var locationManager = CLLocationManager()
     var currentLocation = CLLocation()
     
@@ -56,8 +57,17 @@ class ListResultViewController: UIViewController, UITableViewDelegate, CLLocatio
                     switch response {
                     case .success(let data):
                         postList = data
-                        DispatchQueue.main.async { [self] in
-                            tableView.reloadData()
+                        FavoritesAPI.get(url: FavoritesAPI.favoritesURL, parameters: ["emailAddress": emailAddress!])
+                        { [self] response in
+                            switch response {
+                            case .success(let data):
+                                favList = data
+                            case .failure(let error):
+                                print(error)
+                            }
+                            DispatchQueue.main.async { [self] in
+                                tableView.reloadData()
+                            }
                         }
                     case .failure(let error):
                         print(error)
@@ -69,10 +79,6 @@ class ListResultViewController: UIViewController, UITableViewDelegate, CLLocatio
     
     // MARK: - CLLocationManagerDelegate Methods
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        let userLocation: CLLocation = locations[0] as CLLocation
-//        let center = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
-//        let mRegion = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-//        mapView.setRegion(mRegion, animated: true)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -113,9 +119,11 @@ extension ListResultViewController: UITableViewDataSource {
         guard
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.ReuseIdentifier.searchResultViewCell, for: indexPath) as? SearchResultTableViewCell
         else{preconditionFailure("unable to dequeue reusable cell")}
+        if postList.count == 0 {return cell}
         let post = postList[indexPath.row]
-        cell.configureCell(using: post, emailAddress: emailAddress!)
+        let isFav = favList.contains(where: { $0.id == post.id })
         cell.delegate = self
+        cell.configureCell(using: post, emailAddress: emailAddress!, isFav: isFav)
         return cell
     }
     
@@ -126,7 +134,13 @@ extension ListResultViewController: UITableViewDataSource {
 }
 
 extension ListResultViewController: SearchResultTableCell {
-    func addToFavorites() {
-        
+    func addToFavorites(id: Int) {
+        FavoritesAPI.create(parameters: ["emailAddress": emailAddress!, "postId": String(id)])
+        { response in }
+    }
+    
+    func removeFromFavorites(id: Int) {
+        FavoritesAPI.delete(parameters: ["emailAddress": emailAddress!, "postId": String(id)])
+        { response in }
     }
 }

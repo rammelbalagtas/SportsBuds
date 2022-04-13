@@ -29,9 +29,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UITableVie
         
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
-        
-        loadData()
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadData()
     }
     
     //Register nib for collection view and table view cells

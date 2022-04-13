@@ -13,7 +13,12 @@ enum FavoritesApiResult {
 }
 
 enum CreateFavoriteResult {
-    case success(Post)
+    case success(Bool)
+    case failure(Error)
+}
+
+enum DeleteFavoriteResult {
+    case success(Bool)
     case failure(Error)
 }
 
@@ -58,8 +63,6 @@ struct FavoritesAPI {
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let task = session.dataTask(with: request) {
             data, response, error in
@@ -76,21 +79,13 @@ struct FavoritesAPI {
                 return
             }
             
-            if let data = data {
-                do {
-                    let decoder = JSONDecoder()
-                    let post = try decoder.decode(Post.self, from: data)
-                    callback(.success(post))
-                } catch let e {
-                    print("could not parse json data: \(e)")
-                }
-            }
+            callback(.success(true))
         }
         task.resume()
     }
     
     //Delete Favorites
-    public static func delete(url: String = favoritesURL, parameters: [String: String]?, post: Post, callback: @escaping (CreateFavoriteResult) -> Void) {
+    public static func delete(url: String = favoritesURL, parameters: [String: String]?, callback: @escaping (DeleteFavoriteResult) -> Void) {
         
         guard
             let url = APIHelper.buildURL(url: url, parameters: parameters)
@@ -98,15 +93,6 @@ struct FavoritesAPI {
 
         var request = URLRequest(url: url)
         request.httpMethod = "DELETE"
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        do {
-            let jsonData = try JSONEncoder().encode(post)
-            request.httpBody = jsonData
-        } catch let e {
-            print("could not parse convert json data: \(e)")
-        }
         
         let task = session.dataTask(with: request) {
             data, response, error in
@@ -124,7 +110,7 @@ struct FavoritesAPI {
                 return
             }
             
-            callback(.success(post))
+            callback(.success(true))
             
         }
         task.resume()
