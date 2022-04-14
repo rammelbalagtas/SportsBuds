@@ -10,11 +10,13 @@ import MapKit
 
 class PostMapAnnotation : NSObject, MKAnnotation {
     
-    var coordinate: CLLocationCoordinate2D
-    var title: String?
-    var info: String
+    let id: Int
+    let title: String?
+    let info: String
+    let coordinate: CLLocationCoordinate2D
     
-    init(title: String?, coordinate: CLLocationCoordinate2D, info: String){
+    init(id: Int, title: String?, coordinate: CLLocationCoordinate2D, info: String){
+        self.id = id
         self.title = title
         self.coordinate = coordinate
         self.info = info

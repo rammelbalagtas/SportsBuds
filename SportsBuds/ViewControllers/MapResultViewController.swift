@@ -12,7 +12,7 @@ import CoreLocation
 class MapResultViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     // MARK: - Variables
-    
+    var selectedPostId: Int?
     var postList = [Post]()
     var locationManager = CLLocationManager()
     var currentLocation = CLLocation()
@@ -46,8 +46,8 @@ class MapResultViewController: UIViewController, MKMapViewDelegate, CLLocationMa
                     switch response {
                     case .success(let data):
                         postList = data
-                        DispatchQueue.main.async { [self] in
-                            self.addAnnotations()
+                        DispatchQueue.main.async { [weak self] in
+                            self?.addAnnotations()
                         }
                     case .failure(let error):
                         print(error)
@@ -60,7 +60,7 @@ class MapResultViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     func addAnnotations() {
         var annotations = [MKAnnotation]()
         for post in postList {
-            let postAnnotation = PostMapAnnotation(title: post.title, coordinate: CLLocationCoordinate2D(latitude: post.latitude!, longitude: post.longitude!), info: post.location!)
+            let postAnnotation = PostMapAnnotation(id: post.id, title: post.title, coordinate: CLLocationCoordinate2D(latitude: post.latitude!, longitude: post.longitude!), info: post.location!)
             annotations.append(postAnnotation)
         }
         mapView.showAnnotations(annotations, animated: .random())
@@ -71,7 +71,6 @@ class MapResultViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         guard annotation is PostMapAnnotation else { return nil }
         
         let identifier = "PostMapAnnotation"
-        
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
         if annotationView == nil {
             annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
@@ -86,13 +85,18 @@ class MapResultViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
+        selectedPostId = nil
         guard let annotation = view.annotation as? PostMapAnnotation else {return}
+        selectedPostId = annotation.id
+        performSegue(withIdentifier: "showPostDetail", sender: self)
         
-        let placeName = annotation.title
-        let placeInfo = annotation.info
-        let ac = UIAlertController(title: placeName, message: placeInfo, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        present(ac, animated: true)
+//        guard let annotation = view.annotation as? PostMapAnnotation else {return}
+//        let placeName = annotation.title
+//        let placeInfo = annotation.info
+//        let ac = UIAlertController(title: placeName, message: placeInfo, preferredStyle: .alert)
+//        ac.addAction(UIAlertAction(title: "OK", style: .default))
+//        present(ac, animated: true)
+        
     }
     
     // MARK: - CLLocationManagerDelegate Methods
@@ -107,14 +111,18 @@ class MapResultViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         print("Error - locationManager: \(error.localizedDescription)")
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let destination = segue.destination as? PostDetailViewController {
+            destination.emailAddress = ""
+            if segue.identifier == "showPostDetail" {
+                destination.post = postList.first(where: { $0.id == selectedPostId })
+            }
+        }
     }
-    */
+    
 
 }
